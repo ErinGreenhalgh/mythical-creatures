@@ -7,14 +7,13 @@ class Medusa
   end
 
   def stare(victim)
-    until @statues.count == 4
+    if @statues.count < 3
       @statues << victim
       victim.become_stone
-    end
-    if @statues.count == 4
-      @statues.shift
     else
-      @statues
+      @statues << victim
+      victim.become_stone
+      @statues.shift
     end
   end
 end
